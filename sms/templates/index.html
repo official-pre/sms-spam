@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Spam Detection</h1>
+        <form method="POST">
+            <textarea name="message" placeholder="Enter your message here" required></textarea>
+            <button type="submit">Check for Spam</button>
+        </form>
+        {% if result %}
+            <div class="result {% if result == 'spam' %}spam{% else %}ham{% endif %}">
+                This message is classified as: {{ result }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
